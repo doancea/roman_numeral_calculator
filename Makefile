@@ -8,10 +8,10 @@ TESTDIR=tests
 
 LDFLAGS = `pkg-config --libs check`
 
-_DEPS = roman_calculator.h
+_DEPS = numeral_compressor.h roman_calculator.h numeral_compressor_tests.h
 DEPS = $(patsubst %, $(IDIR)/%, $(_DEPS))
 
-_OBJ = roman_calculator.o roman_calculator_test.o 
+_OBJ = numeral_compressor.o roman_calculator.o numeral_compressor_tests.o roman_calculator_test.o 
 OBJ=$(patsubst %, $(OBJDIR)/%, $(_OBJ))
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(DEPS)

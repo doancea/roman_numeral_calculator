@@ -1,4 +1,5 @@
 #include <check.h>
+#include <numeral_compressor_tests.h>
 #include <roman_calculator.h>
 
 const int EXIT_FAILURE = 1;
@@ -35,11 +36,14 @@ Suite * roman_calculator_suite(void)
  int main(void)
  {
     int number_failed;
-    Suite *s;
+    Suite *calc_tests;
+    Suite *numeral_compressor_tests;
     SRunner *sr;
 
-    s = roman_calculator_suite();
-    sr = srunner_create(s);
+    calc_tests = roman_calculator_suite();
+    numeral_compressor_tests = numeral_compressor_suite();
+    sr = srunner_create(calc_tests);
+    srunner_add_suite(sr, numeral_compressor_tests);
 
     srunner_run_all(sr, CK_NORMAL);
     number_failed = srunner_ntests_failed(sr);

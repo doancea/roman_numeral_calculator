@@ -1,5 +1,7 @@
 
 #include<roman_calculator.h>
+#include <string.h>
+#include <stdlib.h>
 
 void add(char augend[], char addend[], char result[]) {
 	int augend_length = strlen(augend);

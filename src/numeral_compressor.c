@@ -4,10 +4,9 @@
 
 void compressNumerals(char numerals[]) {
 	int repeats = 0;
-	int position = 0;
+	int position = strlen(numerals) - 1;
 
-	for(position; position < strlen(numerals); position++ ) {
-		if(numerals[position] == '\0') break;
+	for(position; position >= 0; position-- ) {
 		if(numerals[position] == 'I') {
 			repeats++;
 		}

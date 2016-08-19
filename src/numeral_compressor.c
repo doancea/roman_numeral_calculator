@@ -2,7 +2,7 @@
 #include<string.h>
 #include<stdio.h>
 
-void compressNumerals(char numerals[]) {
+void handleIChars(char numerals[]) {
 	int repeats = 0;
 	int position = strlen(numerals) - 1;
 
@@ -23,4 +23,25 @@ void compressNumerals(char numerals[]) {
 		numerals[2] = '\0';
 		return;
 	}
+}
+
+void handleVChars(char numerals[]) {
+	int repeats = 0;
+	int position = strlen(numerals) - 1;
+
+	for(position; position >= 0; position-- ) {
+		if(numerals[position] == 'V') {
+			repeats++;
+		}
+	}
+
+	if(repeats == 2) {
+		numerals[0] = 'X';
+		numerals[1] = '\0';
+	}
+}
+
+void compressNumerals(char numerals[]) {
+	handleIChars(numerals);
+	handleVChars(numerals);
 }

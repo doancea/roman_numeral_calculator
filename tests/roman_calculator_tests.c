@@ -24,6 +24,19 @@ START_TEST(addingIIAndIIResultsInIV) {
 	ck_assert_str_eq(result, "IV");
 }
 END_TEST
+
+START_TEST(addingIIIAndIIResultsInV) {
+	char* augend = "III";
+	char* addend = "II";
+	char result[4];
+
+	add(augend, addend, result);
+	
+	ck_assert_str_eq(result, "V");
+}
+END_TEST
+
+
 Suite * roman_calculator_suite(void)
 {
     Suite *s;
@@ -36,6 +49,7 @@ Suite * roman_calculator_suite(void)
 
     tcase_add_test(tc_core, addingIAndIResultsInII);
     tcase_add_test(tc_core, addingIIAndIIResultsInIV);
+    tcase_add_test(tc_core, addingIIIAndIIResultsInV);
 	
     suite_add_tcase(s, tc_core);
 

@@ -5,16 +5,23 @@
 void compressNumerals(char numerals[]) {
 	int repeats = 0;
 	int position = 0;
-	
-	for(position; position < strlen(numerals) - 1; position++ ) {
+
+	for(position; position < strlen(numerals); position++ ) {
+		if(numerals[position] == '\0') break;
 		if(numerals[position] == 'I') {
 			repeats++;
 		}
+	}
 
-		if(repeats == 3) {
-			numerals[position - 1] = 'V';
-			numerals[position] = '\0';
-			repeats = 0;
-		}
+	if(repeats == 5) {
+		numerals[0] = 'V';
+		numerals[1] = '\0';
+		return;
+	}
+
+	if(repeats == 4) {
+		numerals[1] = 'V';
+		numerals[2] = '\0';
+		return;
 	}
 }

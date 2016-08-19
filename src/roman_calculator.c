@@ -1,5 +1,6 @@
 
 #include<roman_calculator.h>
+#include<numeral_compressor.h>
 #include <string.h>
 #include <stdlib.h>
 
@@ -11,6 +12,8 @@ void add(char augend[], char addend[], char result[]) {
 
 	memcpy(sum, augend, augend_length);
     memcpy(sum + augend_length, addend, addend_length + 1);
-    
+
 	strcpy(result, sum); 
+
+	compressNumerals(result);
 }

@@ -41,6 +41,16 @@ START_TEST(VVGetsCompressedToX) {
 }
 END_TEST
 
+START_TEST(VVIGetsCompressedToXI) {
+	char numerals[] = "VVI";
+
+	compressNumerals(numerals);
+	
+	ck_assert_str_eq(numerals, "XI");
+    ck_assert_int_eq(strlen(numerals), 2);
+}
+END_TEST
+
 Suite * numeral_compressor_suite(void)
 {
     Suite *s;
@@ -55,6 +65,7 @@ Suite * numeral_compressor_suite(void)
     tcase_add_test(tc_core, fourConsecutiveINumeralsThenTheConvertedStringIsTheCorrectLength);
     tcase_add_test(tc_core, fiveConsecutiveICharactersAreReplacedWithAV);
     tcase_add_test(tc_core, VVGetsCompressedToX);
+    tcase_add_test(tc_core, VVIGetsCompressedToXI);
 	
     suite_add_tcase(s, tc_core);
 

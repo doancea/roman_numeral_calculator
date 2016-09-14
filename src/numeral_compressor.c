@@ -6,11 +6,15 @@ void handleIChars(char numerals[]) {
 	int repeats = 0;
 	int position = strlen(numerals) - 1;
 
-	for(position; position >= 0; position-- ) {
-		if(numerals[position] == 'I') {
-			repeats++;
-		}
+	while(numerals[position] == 'I') {
+		repeats++;
+		position--;
 	}
+	// for(position; position >= 0; position-- ) {
+	// 	if(numerals[position] == 'I') {
+	// 		repeats++;
+	// 	}
+	// }
 
 	if(repeats == 5) {
 		numerals[0] = 'V';
@@ -25,7 +29,7 @@ void handleIChars(char numerals[]) {
 	}
 }
 
-void handleVChars(char numerals[]) {
+void handleVChars(char numerals[], int vposition) {
 	int repeats = 0;
 	int position = strlen(numerals) - 1;
 
